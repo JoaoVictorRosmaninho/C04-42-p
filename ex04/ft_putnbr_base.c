@@ -6,7 +6,7 @@
 /*   By: jv <jv@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 11:52:25 by jv                #+#    #+#             */
-/*   Updated: 2022/02/17 11:53:14 by jv               ###   ########.fr       */
+/*   Updated: 2022/02/17 22:39:17 by jv               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,35 @@ int	ft_len(char *str)
 	unsigned int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
-	return i;
+	return (i);
 }
+
 void	ft_print(char *num, int size)
 {
-	while(size)
+	while (size)
 	{
 		write(1, (num + size), 1);
 		size--;
 	}
 }
 
-int validate(char *base)
+int	validate(char *base)
 {
-	int i = 0, j = i + 1;
-	if(ft_len(base) < 2)
-		return 0;
-	while(base[i])
-	{  
-		while(base[j])
+	int	i;
+	int	j;
+
+	i = 0;
+	j = i + 1;
+	if (ft_len(base) < 2)
+		return (0);
+	while (base[i])
+	{
+		while (base[j])
 		{
 			if ((base[i] == base[j]) || base[j] == '-' || base[j] == '+')
-				return (0);			
+				return (0);
 			j++;
 		}
 		i++;
@@ -71,5 +76,5 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 	if (aux < 0)
 		num[i++] = '-';
-	ft_print(num, i-1);
+	ft_print(num, i - 1);
 }
