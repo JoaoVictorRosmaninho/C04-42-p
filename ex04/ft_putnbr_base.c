@@ -1,8 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jv <jv@student.42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/17 11:52:25 by jv                #+#    #+#             */
+/*   Updated: 2022/02/17 11:53:14 by jv               ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-
-
-int ft_len(char *str)
+int	ft_len(char *str)
 {
 	unsigned int	i;
 
@@ -11,57 +21,33 @@ int ft_len(char *str)
 		i++;
 	return i;
 }
-void ft_print(char *num, int size)
+void	ft_print(char *num, int size)
 {
 	while(size)
-    {
-        write(1, (num + size), 1);
-        size--;
-    }
+	{
+		write(1, (num + size), 1);
+		size--;
+	}
 }
 
 int validate(char *base)
 {
-    int i = 0, j = i + 1;
-    if(ft_len(base) < 2)
-        return 0;
-    while(base[i])
-    {  
-        while(base[j])
-        {
-            if ((base[i] == base[j]) || base[j] == '-' || base[j] == '+')
-                return (0);
-            
-            j++;
-        }
-        i++;
-        j = i + 1;       
-    }
-    return (1);    
+	int i = 0, j = i + 1;
+	if(ft_len(base) < 2)
+		return 0;
+	while(base[i])
+	{  
+		while(base[j])
+		{
+			if ((base[i] == base[j]) || base[j] == '-' || base[j] == '+')
+				return (0);			
+			j++;
+		}
+		i++;
+		j = i + 1;
+	}
+	return (1);
 }
-
-/*void ft_putnbr_base(int nbr, char *base) 
-{
-    int		rest;
-    int value_base = ft_len(base);
-    char num[100];
-    int i = 1;
-    int aux = nbr;
-    if(!validate(base))
-        return;
-    while (nbr != 0)
-    {
-        if (nbr < 0)
-            rest = nbr % value_base * -1;
-        else
-            rest = nbr % value_base;
-		num[i++] = base[rest];
-		nbr /= value_base;
-    }
-    if (aux < 0)
-        num[i++] = '-';
-    ft_print(num, i);
-}*/
 
 void	ft_putnbr_base(int nbr, char *base)
 {
