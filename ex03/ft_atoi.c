@@ -9,13 +9,6 @@
 /*   Updated: 2022/02/17 10:35:37 by jv               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-unsigned int	is_space(char ch)
-{
-	return (ch == '\f' || ch == '\n' || ch == '\r'
-		|| ch == '\t' || ch == '\v' || ch == ' ');
-}
-
 int	jump_spaces(char **str, char **str_end)
 {
 	int	signals;
